@@ -1,10 +1,10 @@
 import * as algokit from '@algorandfoundation/algokit-utils';
-import { DigitalMarketClient, DigitalMarketFactory } from './contracts/DigitalMarket';
+import { AlgorackMarketClient, AlgorackMarketFactory } from './contracts/AlgorackMarket';
 import { TransactionSigner } from 'algosdk';
 
 
 //using appfactory client from client file
-export function create(algorand: algokit.AlgorandClient, dmFactory: DigitalMarketFactory , dmClient: DigitalMarketClient, assetBeingSold: bigint, unitaryPrice: bigint, sender: string, quantity: bigint , dec:number, signer: TransactionSigner,assetname: string, url: string,
+export function create(algorand: algokit.AlgorandClient, dmFactory: AlgorackMarketFactory , dmClient: AlgorackMarketClient, assetBeingSold: bigint, unitaryPrice: bigint, sender: string, quantity: bigint , dec:number, signer: TransactionSigner,assetname: string, url: string,
 setAppId: (id: bigint) => void,
 ) {
 
@@ -34,7 +34,7 @@ setAppId: (id: bigint) => void,
     const result = await dmFactory.send.create.createApplication({ args: [assetId, unitaryPrice] , sender});
 
 
-    const newClient = new DigitalMarketClient({ appId: result.appClient.appId, algorand: algorand, defaultSigner: signer })
+    const newClient = new AlgorackMarketClient({ appId: result.appClient.appId, algorand: algorand, defaultSigner: signer })
 
     const mbrpay = await algorand.createTransaction.payment({
       sender,
@@ -61,7 +61,7 @@ setAppId: (id: bigint) => void,
 
 }
 
-export function setprice(algorand: algokit.AlgorandClient, dmFactory:DigitalMarketFactory, dmClient: DigitalMarketClient, sender: string, unitaryPrice: bigint, signer: TransactionSigner,setUnitaryPrice: (id : bigint) => void, ) {
+export function setprice(algorand: algokit.AlgorandClient, dmFactory:AlgorackMarketFactory, dmClient: AlgorackMarketClient, sender: string, unitaryPrice: bigint, signer: TransactionSigner,setUnitaryPrice: (id : bigint) => void, ) {
   return async () => {
     await dmClient.send.setPrice({ args: [unitaryPrice], sender: sender, assetReferences:[] })
     setUnitaryPrice(unitaryPrice);
@@ -70,7 +70,7 @@ export function setprice(algorand: algokit.AlgorandClient, dmFactory:DigitalMark
 
 //buy function to buy the asset
 
-export function buy(algorand: algokit.AlgorandClient, dmFactory: DigitalMarketFactory , dmClient: DigitalMarketClient, sender: string, appAddress: string,assetID: bigint, quantity: bigint, unitaryPrice: bigint, signer: TransactionSigner, seller:string , setUnitsLeft: (units: bigint) => void) {
+export function buy(algorand: algokit.AlgorandClient, dmFactory: AlgorackMarketFactory , dmClient: AlgorackMarketClient, sender: string, appAddress: string,assetID: bigint, quantity: bigint, unitaryPrice: bigint, signer: TransactionSigner, seller:string , setUnitsLeft: (units: bigint) => void) {
   return async () => {
     try {
       // Check if the user already has the asset in their wallet
@@ -117,7 +117,7 @@ export function buy(algorand: algokit.AlgorandClient, dmFactory: DigitalMarketFa
 
 
 //deleting the app and withdrawing the profit
-export function deleteApp(algorand: algokit.AlgorandClient, dmFactory: DigitalMarketFactory , dmClient: DigitalMarketClient,assetID:bigint,sender: string,signer: TransactionSigner,
+export function deleteApp(algorand: algokit.AlgorandClient, dmFactory: AlgorackMarketFactory , dmClient: AlgorackMarketClient,assetID:bigint,sender: string,signer: TransactionSigner,
 setAppId: (id: bigint) => void) {
   return async () => {
      await dmClient.send.delete.deleteApplication({args: [],sender: sender,assetReferences:[assetID]})

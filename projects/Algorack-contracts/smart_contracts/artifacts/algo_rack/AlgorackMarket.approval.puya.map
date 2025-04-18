@@ -135,7 +135,7 @@
       "stack_out": []
     },
     "89": {
-      "callsub": "smart_contracts.algo_rack.contract.DigitalMarket.delete_application",
+      "callsub": "smart_contracts.algo_rack.contract.AlgorackMarket.delete_application",
       "op": "callsub delete_application"
     },
     "92": {
@@ -295,7 +295,7 @@
       ]
     },
     "115": {
-      "callsub": "smart_contracts.algo_rack.contract.DigitalMarket.buy",
+      "callsub": "smart_contracts.algo_rack.contract.AlgorackMarket.buy",
       "op": "callsub buy",
       "stack_out": []
     },
@@ -434,7 +434,7 @@
       ]
     },
     "137": {
-      "callsub": "smart_contracts.algo_rack.contract.DigitalMarket.opt_in_to_asset",
+      "callsub": "smart_contracts.algo_rack.contract.AlgorackMarket.opt_in_to_asset",
       "op": "callsub opt_in_to_asset",
       "stack_out": []
     },
@@ -509,7 +509,7 @@
       ]
     },
     "153": {
-      "callsub": "smart_contracts.algo_rack.contract.DigitalMarket.set_price",
+      "callsub": "smart_contracts.algo_rack.contract.AlgorackMarket.set_price",
       "op": "callsub set_price",
       "stack_out": []
     },
@@ -624,7 +624,7 @@
       ]
     },
     "176": {
-      "callsub": "smart_contracts.algo_rack.contract.DigitalMarket.create_application",
+      "callsub": "smart_contracts.algo_rack.contract.AlgorackMarket.create_application",
       "op": "callsub create_application",
       "stack_out": []
     },
@@ -642,7 +642,7 @@
       "stack_out": []
     },
     "181": {
-      "subroutine": "smart_contracts.algo_rack.contract.DigitalMarket.create_application",
+      "subroutine": "smart_contracts.algo_rack.contract.AlgorackMarket.create_application",
       "params": {
         "asset_id#0": "uint64",
         "unitary_price#0": "uint64"
@@ -704,7 +704,7 @@
       "op": "retsub"
     },
     "193": {
-      "subroutine": "smart_contracts.algo_rack.contract.DigitalMarket.set_price",
+      "subroutine": "smart_contracts.algo_rack.contract.AlgorackMarket.set_price",
       "params": {
         "unitary_price#0": "uint64"
       },
@@ -774,7 +774,7 @@
       "op": "retsub"
     },
     "207": {
-      "subroutine": "smart_contracts.algo_rack.contract.DigitalMarket.opt_in_to_asset",
+      "subroutine": "smart_contracts.algo_rack.contract.AlgorackMarket.opt_in_to_asset",
       "params": {
         "mbrpay#0": "uint64"
       },
@@ -1105,7 +1105,7 @@
       "op": "retsub"
     },
     "269": {
-      "subroutine": "smart_contracts.algo_rack.contract.DigitalMarket.buy",
+      "subroutine": "smart_contracts.algo_rack.contract.AlgorackMarket.buy",
       "params": {
         "buyerTxn#0": "uint64",
         "quantity#0": "uint64"
@@ -1397,7 +1397,7 @@
       "op": "retsub"
     },
     "324": {
-      "subroutine": "smart_contracts.algo_rack.contract.DigitalMarket.delete_application",
+      "subroutine": "smart_contracts.algo_rack.contract.AlgorackMarket.delete_application",
       "params": {},
       "block": "delete_application",
       "stack_in": [],

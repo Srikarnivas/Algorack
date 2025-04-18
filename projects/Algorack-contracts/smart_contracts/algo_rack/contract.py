@@ -2,7 +2,7 @@ from algopy import *
 from algopy.arc4 import abimethod
 
 
-class DigitalMarket(ARC4Contract):
+class AlgorackMarket(ARC4Contract):
     assetid: UInt64
     unitaryprice: UInt64
 

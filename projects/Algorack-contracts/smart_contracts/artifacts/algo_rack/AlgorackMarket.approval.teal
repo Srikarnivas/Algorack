@@ -6,7 +6,7 @@ main:
     intcblock 0 1 4 1000
     bytecblock "assetid" "unitaryprice"
     // smart_contracts/algo_rack/contract.py:5
-    // class DigitalMarket(ARC4Contract):
+    // class AlgorackMarket(ARC4Contract):
     txn NumAppArgs
     bz main_after_if_else@11
     pushbytess 0x878cbb3d 0xcc760037 0x1574535a 0x790bf59f 0x33b3499e // method "create_application(asset,uint64)void", method "set_price(uint64)void", method "opt_in_to_asset(pay)void", method "buy(pay,uint64)void", method "delete_application()void"
@@ -15,7 +15,7 @@ main:
 
 main_after_if_else@11:
     // smart_contracts/algo_rack/contract.py:5
-    // class DigitalMarket(ARC4Contract):
+    // class AlgorackMarket(ARC4Contract):
     intc_0 // 0
     return
 
@@ -43,7 +43,7 @@ main_buy_route@6:
     txn ApplicationID
     assert // can only call when not creating
     // smart_contracts/algo_rack/contract.py:5
-    // class DigitalMarket(ARC4Contract):
+    // class AlgorackMarket(ARC4Contract):
     txn GroupIndex
     intc_1 // 1
     -
@@ -71,7 +71,7 @@ main_opt_in_to_asset_route@5:
     txn ApplicationID
     assert // can only call when not creating
     // smart_contracts/algo_rack/contract.py:5
-    // class DigitalMarket(ARC4Contract):
+    // class AlgorackMarket(ARC4Contract):
     txn GroupIndex
     intc_1 // 1
     -
@@ -97,7 +97,7 @@ main_set_price_route@4:
     txn ApplicationID
     assert // can only call when not creating
     // smart_contracts/algo_rack/contract.py:5
-    // class DigitalMarket(ARC4Contract):
+    // class AlgorackMarket(ARC4Contract):
     txna ApplicationArgs 1
     btoi
     // smart_contracts/algo_rack/contract.py:15-16
@@ -118,7 +118,7 @@ main_create_application_route@3:
     !
     assert // can only call when creating
     // smart_contracts/algo_rack/contract.py:5
-    // class DigitalMarket(ARC4Contract):
+    // class AlgorackMarket(ARC4Contract):
     txna ApplicationArgs 1
     btoi
     txnas Assets
@@ -132,7 +132,7 @@ main_create_application_route@3:
     return
 
 
-// smart_contracts.algo_rack.contract.DigitalMarket.create_application(asset_id: uint64, unitary_price: uint64) -> void:
+// smart_contracts.algo_rack.contract.AlgorackMarket.create_application(asset_id: uint64, unitary_price: uint64) -> void:
 create_application:
     // smart_contracts/algo_rack/contract.py:9-11
     // #create the app
@@ -152,7 +152,7 @@ create_application:
     retsub
 
 
-// smart_contracts.algo_rack.contract.DigitalMarket.set_price(unitary_price: uint64) -> void:
+// smart_contracts.algo_rack.contract.AlgorackMarket.set_price(unitary_price: uint64) -> void:
 set_price:
     // smart_contracts/algo_rack/contract.py:15-17
     // #update the listing price
@@ -173,7 +173,7 @@ set_price:
     retsub
 
 
-// smart_contracts.algo_rack.contract.DigitalMarket.opt_in_to_asset(mbrpay: uint64) -> void:
+// smart_contracts.algo_rack.contract.AlgorackMarket.opt_in_to_asset(mbrpay: uint64) -> void:
 opt_in_to_asset:
     // smart_contracts/algo_rack/contract.py:21-23
     // # opt in to the asset that will be sold
@@ -251,7 +251,7 @@ opt_in_to_asset:
     retsub
 
 
-// smart_contracts.algo_rack.contract.DigitalMarket.buy(buyerTxn: uint64, quantity: uint64) -> void:
+// smart_contracts.algo_rack.contract.AlgorackMarket.buy(buyerTxn: uint64, quantity: uint64) -> void:
 buy:
     // smart_contracts/algo_rack/contract.py:38-40
     // # buy the asset
@@ -320,7 +320,7 @@ buy:
     retsub
 
 
-// smart_contracts.algo_rack.contract.DigitalMarket.delete_application() -> void:
+// smart_contracts.algo_rack.contract.AlgorackMarket.delete_application() -> void:
 delete_application:
     // smart_contracts/algo_rack/contract.py:54-55
     // # Only allow the creator to delete the application
