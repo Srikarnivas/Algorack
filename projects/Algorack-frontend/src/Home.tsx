@@ -17,7 +17,7 @@ const Home: React.FC<HomeProps> = () => {
   const [openWalletModal, setOpenWalletModal] = useState<boolean>(false)
 
 
-  const { activeAccount, activeAddress, signer: TransactionSigner } = useWallet()
+  const { activeAccount, activeAddress, transactionSigner: TransactionSigner } = useWallet()
 
   const [appId, setAppId] = useState<bigint>(BigInt(0))
   const [assetId, setAssetId] = useState<bigint>(0n)
@@ -88,7 +88,7 @@ const Home: React.FC<HomeProps> = () => {
         .getApplicationByID(Number(appId))
         .do()
         .then((app) => {
-          setSeller(app.params.creator)
+          setSeller(app.params.creator.toString())
         })
 
 
